@@ -53,7 +53,7 @@ from time import strftime
 
 app = Flask(__name__)
 
-XRayMiddleware(app, xray_recorder)
+# XRayMiddleware(app, xray_recorder)
 
 #Honeycomb
 FlaskInstrumentor().instrument_app(app)
