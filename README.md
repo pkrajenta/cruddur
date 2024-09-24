@@ -1,7 +1,12 @@
 ## Overwiev
+This project showcases a custom website developed during a bootcamp, where I practiced containerization and implemented various observability tools.
 
-**Cruddur** is a microblogging application created as a part of AWS bootcamp hosted by freeCodeCamp.org
+## Features
 
-![Cruddur Graphic](_docs/assets/cruddur-banner.jpg)
+### Containerization
+The application is containerized using Docker, ensuring easy deployment and scalability.
 
-![Cruddur Screenshot](_docs/assets/cruddur-screenshot.png)
+### Observability Tools:
+Amazon CloudWatch: Provides real-time monitoring for performance metrics and logs.  
+AWS X-Ray: Enables tracing of requests as they travel through the system, providing deep insights into service performance.  
+Honeycomb.io: Delivers high-level observability, allowing fine-grained debugging and tracing of distributed systems.
