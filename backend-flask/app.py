@@ -15,6 +15,12 @@ from services.create_message import *
 from services.show_activity import *
 from services.notifications_activities import *
 
+# Rollbar
+import os
+import rollbar
+import rollbar.contrib.flask
+from flask import got_request_exception
+
 # Honeycomb
 from opentelemetry import trace
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
@@ -54,6 +60,23 @@ from time import strftime
 app = Flask(__name__)
 
 # XRayMiddleware(app, xray_recorder)
+
+rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
+@app.before_first_request
+def init_rollbar():
+    """init rollbar module"""
+    rollbar.init(
+        # access token
+        rollbar_access_token,
+        # environment name
+        'development',
+        # server root directory, makes tracebacks prettier
+        root=os.path.dirname(os.path.realpath(__file__)),
+        # flask already sets up logging
+        allow_logging_basic_config=False)
+
+    # send exceptions from `app` to rollbar, using flask's signal system.
+    got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
 
 #Honeycomb
 FlaskInstrumentor().instrument_app(app)
