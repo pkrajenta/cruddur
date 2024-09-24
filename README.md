@@ -10,3 +10,7 @@ The application is containerized using Docker, ensuring easy deployment and scal
 Amazon CloudWatch: Provides real-time monitoring for performance metrics and logs.  
 AWS X-Ray: Enables tracing of requests as they travel through the system, providing deep insights into service performance.  
 Honeycomb.io: Delivers high-level observability, allowing fine-grained debugging and tracing of distributed systems.
+
+### Notice
+This repository was imported from a freeCodeCamp.org bootcamp template.
+https://github.com/omenking/aws-bootcamp-cruddur-2023
